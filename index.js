@@ -5,6 +5,7 @@
 */
 var principal = 200000;
 var interest_rate = 0.05;
+var I = 0.05;
 var years = 30;
 var name = "Ian L. Tucker"
 
@@ -39,10 +40,10 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 When your math is correct, monthlyRate will equal 1073.64
 */
 let N = periods;
-let p = principal;
+let P = principal;
 var n1 = (1 + monthlyInterestRate);
 var n1 = Math.pow(n1,N);
-var numerator = (p * n1 * monthlyInterestRate);
+var numerator = (P * n1 * monthlyInterestRate);
 var denominator = (n1 - 1);
 var monthlyRate = (numerator / denominator);
 
@@ -55,7 +56,7 @@ console.log(monthlyRate);
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 function mortgageCalculator() {
-    monthlyRate = p*((1 + monthlyInterestRate) * Math.pow(n1,N))/((1 + monthlyInterestRate) * Math.pow(n1,N) - 1);
+    monthlyRate = P*((1 + monthlyInterestRate) * Math.pow(n1,N))/((1 + monthlyInterestRate) * Math.pow(n1,N) - 1);
     console.log(name,", your monthly rate is ",monthlyRate);
 };
 console.log(name,", your monthly rate is ",monthlyRate);
@@ -68,6 +69,12 @@ console.log(name,", your monthly rate is ",monthlyRate);
 For example,
 mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
+function mortgageCalculator(P, I, N){
+    console.log((p*((1+i) * Math.pow(n1,N)) / ((1 + i )*Math.pow(n1,N)-1)));
+};
+
+mortgageCalculator(200000, 0.05, 30);
+    console.log(mortgageCalculator);
 
 
 
@@ -80,8 +87,26 @@ Then, add control flow within your function such that IF creditScore is above 74
 
 Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by 0.95. Similarly, to increase an interest rate by 5% you'd do monthlyRate * 1.05. 
 */
+function mortgageCalculator(name, P, I, N, creditScore){
+    monthlyInterestRate = (I / 12);
+    periods = (N * 12);
+    N1 = Math.pow(1 + monthlyInterestRate, periods);
+    numerator = Math.abs(P * N1 * monthlyInterestRate);
+    denominator = (N1 - 1);
+    monthlyRate = numerator/denominator;
+    if (creditScore < 660) {
+        monthlyRate = monthlyRate * 1.05;
+        I = I * 1.05;
+    } else if (creditScore > 740) {
+        monthlyRate = monthlyRate * 0.95;
+        I = I * 0.95;
+    } else {
+        monthlyRate = monthlyRate;
+    }
+    monthlyRate = monthlyRate.toFixed(2);
+};
 
-
+mortgageCalculator("Ian L. Tucker", P, I, N, 740);
 
 
 // 🏡 Task 6: Loops
