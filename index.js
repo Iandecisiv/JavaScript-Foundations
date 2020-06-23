@@ -163,8 +163,9 @@ for (i = 0.02; i < .06; i+=.005) {
     let denominator = (n1 - 1);
     let monthlyRate = (numerator / denominator);
     monthlyRate = (monthlyRate.toFixed(2));
-  console.log(i.toFixed(3));
-  console.log(monthlyRate);
+    console.log(name+",with and interest rate of", i.toFixed(3)+", your monthly rate is $"+ monthlyRate);
+//   console.log(i.toFixed(3));
+//   console.log(monthlyRate);
 } 
 };
 
@@ -232,7 +233,7 @@ function homeCostCalculator (P, I, N, propertyTaxes, insurance, hoaFees) {
     console.log (allOther);
     console.log (totalExpense);
     totalExpense = (totalExpense.toFixed(2));
-    console.log ("Your total housing expense including taxes, insurance, and HOA fees is $", totalExpense);
+    console.log ("Your total housing expense including taxes, insurance, and HOA fees is $"+ totalExpense);
 }
 
 homeCostCalculator(300000, 0.05, 7, 750, 1000); 
