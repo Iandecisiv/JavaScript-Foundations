@@ -154,20 +154,31 @@ function variableInterestRate(P, I, N){
     let denominator = (n1 - 1);
     let monthlyRate = (numerator / denominator);
     monthlyRate = (monthlyRate.toFixed(2));
-    var i;
-for (i = 0.02; i < .06; i+=.005) {
-    monthlyInterestRate = (i / 12);
-    let periods = (N * 12);
-    let n1 = Math.pow((1 + monthlyInterestRate), periods);
-    let numerator = (P * n1 * monthlyInterestRate);
-    let denominator = (n1 - 1);
-    let monthlyRate = (numerator / denominator);
-    monthlyRate = (monthlyRate.toFixed(2));
-    console.log(name+",with and interest rate of", i.toFixed(3)+", your monthly rate is $"+ monthlyRate);
+    
+    for (let I = 0.02; I <= .06; I+=.005) {
+        let monthlyInterestRate = (I / 12);
+        let periods = (N * 12);
+        let n1 = Math.pow((1 + monthlyInterestRate), periods);
+        let numerator = (P * n1 * monthlyInterestRate);
+        let denominator = (n1 - 1);
+        let monthlyRate = (numerator / denominator);
+        monthlyRate = (monthlyRate.toFixed(2))
+        console.log(name+",with an interest rate of", I.toFixed(3)+", your monthly rate is $"+ monthlyRate);
+    }
+
+};
+// for (i = 0.02; i <= .06; i+=.005) {
+//     monthlyInterestRate = (i / 12);
+//     let periods = (N * 12);
+//     let n1 = Math.pow((1 + monthlyInterestRate), periods);
+//     let numerator = (P * n1 * monthlyInterestRate);
+//     let denominator = (n1 - 1);
+//     let monthlyRate = (numerator / denominator);
+//     monthlyRate = (monthlyRate.toFixed(2));
+//     console.log(name+",with and interest rate of", i.toFixed(3)+", your monthly rate is $"+ monthlyRate);
 //   console.log(i.toFixed(3));
 //   console.log(monthlyRate);
-} 
-};
+
 
 variableInterestRate(200000, 0.04, 30);
 
