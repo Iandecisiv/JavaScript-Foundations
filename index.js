@@ -124,9 +124,10 @@ function mortgageCalculator(P, I, N, creditScore){
         monthlyRate = monthlyRate;
     }
     monthlyRate = (monthlyRate.toFixed(2));
+    console.log(monthlyRate);
 };
 
-// mortgageCalculator(name , principal, I, periods, 740);
+mortgageCalculator(name , principal, I, periods, 740);
 
 
 // 🏡 Task 6: Loops
@@ -153,11 +154,57 @@ function variableInterestRate(P, I, N){
     let denominator = (n1 - 1);
     let monthlyRate = (numerator / denominator);
     monthlyRate = (monthlyRate.toFixed(2));
-    let i = I
-    for (let i = 0.02; i < 0.06; i++); {
-        console.log(i);
-    }
+    var i;
+for (i = 0.02; i < .06; i+=.005) {
+    monthlyInterestRate = (i / 12);
+    let periods = (N * 12);
+    let n1 = Math.pow((1 + monthlyInterestRate), periods);
+    let numerator = (P * n1 * monthlyInterestRate);
+    let denominator = (n1 - 1);
+    let monthlyRate = (numerator / denominator);
+    monthlyRate = (monthlyRate.toFixed(2));
+  console.log(i.toFixed(3));
+  console.log(monthlyRate);
+} 
 };
+
+variableInterestRate(200000, 0.04, 30);
+
+
+// function variableInterestRate(P, I, N){
+//     let monthlyInterestRate = (I / 12);
+//     let periods = (N * 12);
+//     let n1 = Math.pow((1 + monthlyInterestRate), periods);
+//     let numerator = (P * n1 * monthlyInterestRate);
+//     let denominator = (n1 - 1);
+//     let monthlyRate = (numerator / denominator);
+//     monthlyRate = (monthlyRate.toFixed(2));
+//     var i;
+//     for (var i = 0.02; i < 0.06; i+=.005); {
+//         console.log(i);
+//     }
+// };
+
+// function variableInterestRate(P, I, N){
+//     var monthlyInterestRate = (I / 12);
+//     var periods = (N * 12);
+//     var n1 = Math.pow((1 + monthlyInterestRate), periods);
+//     var numerator = (P * n1 * monthlyInterestRate);
+//     var denominator = (n1 - 1);
+//     var monthlyRate = (numerator / denominator);
+//     monthlyRate = (monthlyRate.toFixed(2));
+//     var i = I
+//     for (let i = 0.02; i < 0.06; i= i + .005); {
+//         monthlyInterestRate = (i / 12);
+//      periods = (N * 12);
+//      n1 = Math.pow((1 + monthlyInterestRate), periods);
+//      numerator = (P * n1 * monthlyInterestRate);
+//      denominator = (n1 - 1);
+//      monthlyRate = (numerator / denominator);
+//     monthlyRate = (monthlyRate.toFixed(2));
+//         console.log(i);
+//     }
+// };
 
 
 
