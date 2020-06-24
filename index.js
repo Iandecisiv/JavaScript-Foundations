@@ -147,13 +147,13 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 */
  
 function variableInterestRate(P, I, N){
-    let monthlyInterestRate = (I / 12);
-    let periods = (N * 12);
-    let n1 = Math.pow((1 + monthlyInterestRate), periods);
-    let numerator = (P * n1 * monthlyInterestRate);
-    let denominator = (n1 - 1);
-    let monthlyRate = (numerator / denominator);
-    monthlyRate = (monthlyRate.toFixed(2));
+    // let monthlyInterestRate = (I / 12);
+    // let periods = (N * 12);
+    // let n1 = Math.pow((1 + monthlyInterestRate), periods);
+    // let numerator = (P * n1 * monthlyInterestRate);
+    // let denominator = (n1 - 1);
+    // let monthlyRate = (numerator / denominator);
+    // monthlyRate = (monthlyRate.toFixed(2));
     
     for (let I = 0.02; I <= .06; I+=.005) {
         let monthlyInterestRate = (I / 12);
